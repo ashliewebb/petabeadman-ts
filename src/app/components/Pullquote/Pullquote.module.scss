@@ -1,0 +1,23 @@
+.pullquote {
+    max-width: 1060px;
+    display: flex;
+    font-size: 28px;
+    line-height: 1.6;
+    padding: 48px;
+    text-align: center;
+    font-weight: 600;
+
+    &:before,
+    &:after {
+        width: 100px;
+        height: 100px;
+    }
+
+    &:before {
+        content: attr(data-icon1);
+    }
+
+    &:after {
+        content: attr(data-icon2);
+    }
+}

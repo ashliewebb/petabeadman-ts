@@ -1,0 +1,47 @@
+.imageText {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2em;
+    align-items: center;
+
+    @media (screen and min-width: 980px) {
+        flex-direction: row;
+        gap: 4em;
+    }
+}
+
+.imageTextImage {
+    width: 100%;
+}
+
+.imageTextImage__img {
+    height: auto;
+}
+
+.imageTextImageRounded {
+    border-radius: 50%;
+}
+
+.imageTextImageLeft {
+    flex-direction: row;
+}
+
+.imageTextImageRight {
+    flex-direction: row-reverse;
+}
+
+.imageText__copy {
+    flex: 2;
+}
+
+.imageTextCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    font-size: 22px;
+}
+
+.imageTextCopy h2 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+}
