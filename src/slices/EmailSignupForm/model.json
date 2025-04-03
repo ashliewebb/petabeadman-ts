@@ -1,0 +1,53 @@
+{
+  "id": "email_signup_form",
+  "type": "SharedSlice",
+  "name": "EmailSignupForm",
+  "description": "EmailSignupForm",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,rtl"
+          }
+        },
+        "klaviyo_form_id": {
+          "type": "Text",
+          "config": {
+            "label": "Klaviyo Form ID",
+            "placeholder": ""
+          }
+        },
+        "background_colour": {
+          "type": "Link",
+          "config": {
+            "label": "Background Colour",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "background_colour"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

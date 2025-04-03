@@ -1,0 +1,24 @@
+{
+  "format": "custom",
+  "id": "background_colour",
+  "label": "Background Colour",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "colour_hexcode": {
+        "type": "Text",
+        "config": {
+          "label": "Colour hexcode",
+          "placeholder": "Only used if background should NOT be WHITE"
+        }
+      }
+    }
+  }
+}

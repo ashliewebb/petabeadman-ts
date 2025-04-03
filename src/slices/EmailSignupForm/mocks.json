@@ -1,0 +1,38 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "wood",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute Lorem ut ipsum. Ex cillum sunt non fugiat occaecat. Incididunt exercitation ad aliqua deserunt exercitation ullamco enim incididunt ullamco id."
+						}
+					}
+				]
+			},
+			"background_colour": {
+				"key": "51efde2a-2da1-474b-926e-4a308dfb4ad9",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"klaviyo_form_id": {
+				"__TYPE__": "FieldContent",
+				"value": "clay",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

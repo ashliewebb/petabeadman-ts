@@ -1,0 +1,74 @@
+{
+  "id": "hero_banner",
+  "type": "SharedSlice",
+  "name": "HeroBanner",
+  "description": "HeroBanner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "call_to_action": {
+          "type": "Link",
+          "config": {
+            "label": "Call To Action",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {
+              "width": 1600
+            },
+            "thumbnails": []
+          }
+        },
+        "overlay_colour": {
+          "type": "Color",
+          "config": {
+            "label": "Overlay Colour",
+            "placeholder": ""
+          }
+        },
+        "overlay_opacity": {
+          "type": "Number",
+          "config": {
+            "label": "Overlay Opacity",
+            "placeholder": "A percentage of how transparent the colour overlay appears"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

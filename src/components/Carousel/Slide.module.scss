@@ -1,0 +1,18 @@
+.slide {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.quote {
+  font-size: 22px;
+}
+
+.quotee {
+  font-size: 17px;
+  opacity: 0.5;
+  font-style: normal;
+}

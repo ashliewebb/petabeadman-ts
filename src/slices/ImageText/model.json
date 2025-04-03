@@ -1,0 +1,106 @@
+{
+  "id": "image_text",
+  "type": "SharedSlice",
+  "name": "ImageText",
+  "description": "ImageText",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Image on LEFT",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 400
+            },
+            "thumbnails": []
+          }
+        },
+        "round_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Round Image",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "copy": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Copy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,rtl"
+          }
+        },
+        "background_colour": {
+          "type": "Link",
+          "config": {
+            "label": "Background Colour",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "background_colour"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "imageOnRight",
+      "name": "Image on RIGHT",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "copy": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Copy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,rtl"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "round_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Round Image",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "background_colour": {
+          "type": "Link",
+          "config": {
+            "label": "Background Colour",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "background_colour"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

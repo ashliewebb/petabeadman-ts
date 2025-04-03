@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Raleway, Nunito } from "next/font/google";
 import Link from 'next/link'
-import "./globals.css";
+import Script from 'next/script'
+import "@/styles/globals.css";
 import styles from "./page.module.scss";
 
 const raleway = Raleway({
@@ -28,6 +29,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script strategy={"afterInteractive"} src={"https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WcnSUn"}>
+        </Script>
+        <Script id="klaviyo-init" strategy="afterInteractive">
+          {`
+            var _learnq = _learnq || [];
+            _learnq.push(['account', 'WcnSUn']);
+          `}
+        </Script>
+      </head>
       <body className={`${raleway.variable} ${nunito.variable}`}>
         <div className={styles.page}>
           <div className={styles.strapline}>
@@ -48,7 +59,7 @@ export default function RootLayout({
                 <Link href="/about" className={styles.navigationLink}>About</Link>
               </li>
               <li>
-                <Link href="/shop" className={styles.buttonPrimary}>Buy the Book</Link>
+                <Link href="/shop" className={`buttonPrimary`}>Buy the Bundle</Link>
               </li>
             </ul>
           </header>

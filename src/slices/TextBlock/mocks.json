@@ -1,0 +1,28 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua non voluptate id cupidatat cillum minim irure."
+						}
+					}
+				]
+			},
+			"background_colour": {
+				"__TYPE__": "LinkContent",
+				"key": "a74d3de4-a2be-4c16-a48b-9349b218b8a7",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": []
+	}
+]

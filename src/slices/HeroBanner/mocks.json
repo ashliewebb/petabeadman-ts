@@ -1,0 +1,74 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "needle",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum ad ad magna amet Lorem pariatur. Voluptate minim minim proident incididunt incididunt ea veniam eu aliqua in mollit incididunt veniam."
+						}
+					}
+				]
+			},
+			"call_to_action": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "1710e48a-eedc-4d0d-b64c-163051670072",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://slicemachine.dev",
+							"text": "wooden",
+							"variant": "Secondary"
+						}
+					}
+				]
+			},
+			"background_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?rect=1%2C0%2C5614%2C3744&w=1600&h=1067",
+				"width": 1600,
+				"height": 1067,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 1,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "grow",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"overlay_colour": {
+				"__TYPE__": "FieldContent",
+				"value": "#a950e1",
+				"type": "Color"
+			},
+			"overlay_opacity": {
+				"__TYPE__": "FieldContent",
+				"value": "54",
+				"type": "Number"
+			}
+		},
+		"items": []
+	}
+]

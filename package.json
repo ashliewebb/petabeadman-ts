@@ -6,22 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine",
+    "create-slice": "node tools/create-slice.js"
   },
   "dependencies": {
+    "@prismicio/client": "^7.17.0",
+    "@prismicio/helpers": "^2.3.9",
+    "@prismicio/next": "^2.0.1",
+    "@prismicio/react": "^3.2.0",
+    "embla-carousel-react": "^8.5.2",
     "next": "15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@prismicio/types": "^0.2.9",
+    "@slicemachine/adapter-next": "^0.3.72",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
-    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.86.0",
-    "typescript": "^5"
+    "slice-machine-ui": "^2.14.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }

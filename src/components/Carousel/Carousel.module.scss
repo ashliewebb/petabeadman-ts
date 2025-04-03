@@ -1,0 +1,58 @@
+.embla {
+  max-width: 48rem;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+}
+
+.emblaViewport {
+  overflow: hidden;
+}
+
+.emblaContainer {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.emblaSlide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.arrow {
+  background: transparent;
+  color: var(--color-highlight);
+  border: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrowNext:after,
+.arrowPrev:before {
+  font-size: 42px;
+  line-height: 0.8;
+  position: relative;
+  top: -3px;
+}
+
+.arrowNext:after {
+  content: "\2192";
+}
+
+.arrowPrev:before {
+  content: "\2190";
+}

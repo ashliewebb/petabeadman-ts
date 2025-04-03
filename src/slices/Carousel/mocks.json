@@ -1,0 +1,62 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "bit",
+				"type": "Text"
+			},
+			"background_colour": {
+				"key": "bc76710c-fe4e-44f1-a20a-5dd82b8040c7",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"slide": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"quote",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ea cillum enim cillum ex occaecat consequat adipisicing. Lorem fugiat anim est elit pariatur. Ut est nisi duis veniam exercitation labore Lorem sit officia qui incididunt magna amet."
+											}
+										}
+									]
+								}
+							],
+							[
+								"quotee",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "mixture",
+									"type": "Text"
+								}
+							],
+							[
+								"quote_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "previous",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
