@@ -20,7 +20,7 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
                 imageDirection={slice.variation === 'imageOnRight' ? 'Right' : 'Left'}
                 imageRounded={slice.primary.round_image}
                 copy={<PrismicRichText field={slice.primary.copy} />}
-                bgColour={slice.primary.background_colour?.data?.colour_hexcode ?? ''}
+                bgColour={(slice.primary.background_colour as any)?.data?.colour_hexcode}
             ></ImageTextLayout>
         )
 }
