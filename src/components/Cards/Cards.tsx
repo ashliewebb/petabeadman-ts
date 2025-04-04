@@ -4,7 +4,7 @@ import styles from './Cards.module.scss';
 
 type CardsProps = {
     heading?: string;
-    copy?: string;
+    copy?: React.ReactNode;
     bgColour?: string;
     children: React.ReactNode;
 }
