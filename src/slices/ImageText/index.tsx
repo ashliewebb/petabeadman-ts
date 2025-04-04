@@ -18,7 +18,7 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
         'data' in slice.primary.background_colour
             ? (slice.primary.background_colour as { data: { colour_hexcode?: string } }).data.colour_hexcode
             : undefined;
-    
+
     return (
             <ImageTextLayout
                 image={slice.primary.image.url ?? ''}
