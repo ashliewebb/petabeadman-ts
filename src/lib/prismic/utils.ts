@@ -1,19 +1,19 @@
 export const getLinkedField = <
     T extends { data?: Record<string, unknown> },
-    K extends keyof NonNullable<T["data"]>
+    K extends string
 >(
     field: T | null | undefined,
     key: K,
-    fallback: NonNullable<T["data"]>[K] | undefined = undefined
-): NonNullable<T["data"]>[K] | undefined => {
+    fallback?: unknown
+): unknown => {
     if (
         field &&
         typeof field === 'object' &&
         'data' in field &&
         field.data &&
-        key in field.data
+        Object.prototype.hasOwnProperty.call(field.data, key)
     ) {
-        return field.data[key] as NonNullable<T["data"]>[K];
+        return (field.data as Record<string, unknown>)[key];
     }
     return fallback;
 };
