@@ -15,8 +15,8 @@ export type EmailSignupFormProps =
 const EmailSignupForm: FC<EmailSignupFormProps> = ({ slice }) => {
   return (
     <EmailSignupFormLayout
-        formId={slice.primary.klaviyo_form_id}
-        heading={slice.primary.heading ?? undefined}
+        formId={slice.primary.klaviyo_form_id ?? ''}
+        heading={slice.primary.heading ?? undefined ?? ''}
         description={<PrismicRichText field={slice.primary.description}/>}
         bgColour={slice.primary.background_colour?.data?.colour_hexcode}
     ></EmailSignupFormLayout>

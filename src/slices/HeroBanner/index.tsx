@@ -23,13 +23,13 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
       : [];
 
   return (
-    <HeroBannerLayout title={slice.primary.heading ?? undefined}
+    <HeroBannerLayout title={slice.primary.heading ?? ''}
                 description={<PrismicRichText field={slice.primary.description} />}
-                backgroundImage={slice.primary.background_image.url}
-                overlayColour={slice.primary.overlay_colour}
-                overlayOpacity={slice.primary.overlay_opacity}
+                backgroundImage={slice.primary.background_image.url ?? ''}
+                overlayColour={slice.primary.overlay_colour ?? ''}
+                overlayOpacity={slice.primary.overlay_opacity ?? 'null'}
                 links={links}
-                hashid={slice.primary.hashid}
+                hashid={slice.primary.hashid ?? ''}
     ></HeroBannerLayout>
   );
 };

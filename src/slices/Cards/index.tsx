@@ -21,9 +21,9 @@ const Cards: FC<CardsProps> = ({ slice }) => {
             {slice.primary.card?.map((item, index) => (
                 <CardLayout
                     key={index}
-                    title={item.title}
-                    image={item.image.url}
-                    imageAlt={item.image.alt}
+                    title={item.title ?? ''}
+                    image={item.image.url ?? ''}
+                    imageAlt={item.image.alt ?? ''}
                     description={<PrismicRichText field={item.copy} />}
                 />
             ))}

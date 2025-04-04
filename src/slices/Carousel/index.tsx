@@ -21,9 +21,9 @@ const Carousel: FC<CarouselProps> = ({ slice }) => {
         {slice.primary.slide?.map((item, index) => (
             <SlideLayout
                 key={index}
-                title={item.quote_title}
+                title={item.quote_title ?? ''}
                 quote={<PrismicRichText field={item.quote} />}
-                quotee={item.quotee}
+                quotee={item.quotee ?? ''}
             />
         ))}
       </CarouselLayout>

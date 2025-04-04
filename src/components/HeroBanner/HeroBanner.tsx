@@ -16,7 +16,7 @@ type HeroBannerProps = {
     links: CTA[];
     backgroundImage: string;
     overlayColour: string;
-    overlayOpacity: string;
+    overlayOpacity: string | undefined;
     hashid: string;
 }
 

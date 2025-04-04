@@ -3,7 +3,7 @@ import styles from './Slide.module.scss';
 
 type SlideProps = {
     quote_title: string;
-    quote: string;
+    quote: React.ReactNode;
     quotee: string;
 }
 

@@ -6,7 +6,7 @@ import styles from './EmailSignupForm.module.scss';
 
 type EmailSignupFormProps = {
     heading: string;
-    description?: string;
+    description?: React.ReactNode;
     bgColour?: string;
     formId: string; // e.g., "klaviyo-form-XYZ123"
 };

@@ -15,12 +15,12 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
 
         return (
             <ImageTextLayout
-                image={slice.primary.image.url}
-                imageAlt={slice.primary.image.alt}
+                image={slice.primary.image.url ?? ''}
+                imageAlt={slice.primary.image.alt ?? ''}
                 imageDirection={slice.variation === 'imageOnRight' ? 'Right' : 'Left'}
                 imageRounded={slice.primary.round_image}
                 copy={<PrismicRichText field={slice.primary.copy} />}
-                bgColour={slice.primary.background_colour?.data?.colour_hexcode}
+                bgColour={slice.primary.background_colour?.data?.colour_hexcode ?? ''}
             ></ImageTextLayout>
         )
 }
