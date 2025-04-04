@@ -1,6 +1,7 @@
 import React, {FC} from "react";
 import { ImageText as ImageTextLayout } from '@/components/ImageText/ImageText'
-import {Content, isFilledContentRelationship} from "@prismicio/client";
+import {Content} from "@prismicio/client";
+import { isFilledContentRelationship } from "@prismicio/helpers";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import {getLinkedField} from "@/lib/prismic/utils";
 

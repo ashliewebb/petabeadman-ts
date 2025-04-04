@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { EmailSignupForm as EmailSignupFormLayout } from "@/components/EmailSignupForm/EmailSignupForm";
-import {Content, isFilledContentRelationship} from "@prismicio/client";
+import {Content} from "@prismicio/client";
+import { isFilledContentRelationship } from "@prismicio/helpers";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import {getLinkedField} from "@/lib/prismic/utils";
 

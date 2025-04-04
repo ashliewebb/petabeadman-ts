@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Content, isFilledContentRelationship } from "@prismicio/client";
+import {Content} from "@prismicio/client";
+import { isFilledContentRelationship } from "@prismicio/helpers";
 import { getLinkedField } from '@/lib/prismic/utils';
 import { Carousel as CarouselLayout } from "@/components/Carousel/Carousel";
 import { Slide as SlideLayout } from "@/components/Carousel/Slide";
