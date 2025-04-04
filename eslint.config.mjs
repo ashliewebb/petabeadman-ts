@@ -10,6 +10,14 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    // 👇 Add your ignores here
+    ignores: [
+      'src/lib/prismic/types.tsx',    // ignore problematic file
+      'src/.slicemachine/**',         // ignore Slice Machine generated content
+      '**/*.d.ts',                    // optionally ignore all type defs
+    ],
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
