@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { EmailSignupForm as EmailSignupFormLayout } from "@/components/EmailSignupForm/EmailSignupForm";
-import { Content } from "@prismicio/client";
+import {Content, isFilledContentRelationship} from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 import {getLinkedField} from "@/lib/prismic/utils";
 
@@ -14,12 +14,16 @@ export type EmailSignupFormProps =
  * Component for "EmailSignupForm" Slices.
  */
 const EmailSignupForm: FC<EmailSignupFormProps> = ({ slice }) => {
+  const bgColour = isFilledContentRelationship(slice.primary.background_colour)
+      ? (getLinkedField(slice.primary.background_colour, 'colour_hexcode') as string | undefined)
+      : undefined;
+
   return (
     <EmailSignupFormLayout
         formId={slice.primary.klaviyo_form_id ?? ''}
         heading={slice.primary.heading ?? undefined ?? ''}
         description={<PrismicRichText field={slice.primary.description}/>}
-        bgColour={getLinkedField(slice.primary.background_colour, 'colour_hexcode') as string | undefined}
+        bgColour={bgColour}
     ></EmailSignupFormLayout>
   );
 };
