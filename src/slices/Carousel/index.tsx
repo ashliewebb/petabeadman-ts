@@ -17,7 +17,7 @@ const Carousel: FC<CarouselProps> = ({ slice }) => {
   return (
       <CarouselLayout
           heading={slice.primary.heading ?? undefined}
-          bgColour={getLinkedField(slice.primary.background_colour, 'colour_hexcode')}
+          bgColour={getLinkedField(slice.primary.background_colour, 'colour_hexcode') as string | undefined}
       >
         {slice.primary.slide?.map((item, index) => (
             <SlideLayout
