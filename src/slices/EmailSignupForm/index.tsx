@@ -13,12 +13,8 @@ export type EmailSignupFormProps =
  * Component for "EmailSignupForm" Slices.
  */
 const EmailSignupForm: FC<EmailSignupFormProps> = ({ slice }) => {
-  // @ts-expect-error - Prismic relationship `data` might be undefined at runtime
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const bgColour = slice.primary.background_colour &&
-  slice.primary.background_colour.data
-      ? slice.primary.background_colour.data.colour_hexcode
-      : undefined;
+  const bgColour =
+      (slice.primary.background_colour?.data as { colour_hexcode?: string })?.colour_hexcode ?? undefined;
 
   return (
     <EmailSignupFormLayout
