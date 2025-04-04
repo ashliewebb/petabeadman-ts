@@ -26,7 +26,7 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
                 description={<PrismicRichText field={slice.primary.description} />}
                 backgroundImage={slice.primary.background_image.url ?? ''}
                 overlayColour={slice.primary.overlay_colour ?? ''}
-                overlayOpacity={slice.primary.overlay_opacity ?? 'null'}
+                overlayOpacity={slice.primary.overlay_opacity ?? ''}
                 links={links}
     ></HeroBannerLayout>
   );

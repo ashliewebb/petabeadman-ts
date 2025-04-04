@@ -16,13 +16,12 @@ type HeroBannerProps = {
     links: CTA[];
     backgroundImage: string;
     overlayColour: string;
-    overlayOpacity: string | undefined;
-    hashid: string;
+    overlayOpacity: string | number;
 }
 
-export const HeroBanner = ({title, description, links = [], backgroundImage, overlayColour, overlayOpacity, hashid}: HeroBannerProps) => {
+export const HeroBanner = ({title, description, links = [], backgroundImage, overlayColour, overlayOpacity}: HeroBannerProps) => {
     return (
-        <div id={hashid} className={styles.heroBanner} style={{ backgroundImage: `url(${backgroundImage}`}}>
+        <div className={styles.heroBanner} style={{ backgroundImage: `url(${backgroundImage}`}}>
             <div className={styles.heroBannerOverlay} style={{backgroundColor: `rgba(from ${overlayColour} r g b / ${overlayOpacity})`}}>
                 <div className={styles.heroBannerContent}>
                     <h1 className={`heading heading1`}>{title}</h1>
