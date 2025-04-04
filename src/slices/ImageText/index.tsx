@@ -13,8 +13,12 @@ export type ImageTextProps = SliceComponentProps<Content.ImageTextSlice>;
  */
 const ImageText: FC<ImageTextProps> = ({ slice }) => {
     const bgColour =
-        (slice.primary.background_colour?.data as { colour_hexcode?: string })?.colour_hexcode ?? undefined;
-
+        typeof slice.primary.background_colour === 'object' &&
+        slice.primary.background_colour !== null &&
+        'data' in slice.primary.background_colour
+            ? (slice.primary.background_colour as { data: { colour_hexcode?: string } }).data.colour_hexcode
+            : undefined;
+    
     return (
             <ImageTextLayout
                 image={slice.primary.image.url ?? ''}
