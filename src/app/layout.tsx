@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script strategy={"afterInteractive"} src={"https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WcnSUn"}>
+        <Script id="klaviyo-script" strategy={"afterInteractive"} src={"https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=WcnSUn"}>
         </Script>
         <Script id="klaviyo-init" strategy="afterInteractive">
           {`

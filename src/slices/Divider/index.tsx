@@ -11,7 +11,7 @@ export type DividerProps = SliceComponentProps<Content.DividerSlice>;
 /**
  * Component for "Divider" Slices.
  */
-const Divider: FC<DividerProps> = ({ slice }) => {
+const Divider: FC<DividerProps> = ({}) => {
   return (
       <hr className={`divider`}></hr>
   );

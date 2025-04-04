@@ -2,7 +2,6 @@
 
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEmblaAutoplay } from './useEmblaAutoplay';
 import { useEmblaControls } from './useEmblaControls';
 import '@/styles/globals.css';
 import styles from './Carousel.module.scss';
