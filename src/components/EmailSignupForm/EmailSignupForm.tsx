@@ -27,7 +27,7 @@ export const EmailSignupForm = ({ heading, description, bgColour, formId }: Emai
         <div className={`section`} style={{ backgroundColor: bgColour }}>
             <div className={`sectionInner`}>
                 {heading && <h2 className={`heading heading2`}>{heading}</h2>}
-                {description && <p className={styles.copy}>{description}</p>}
+                {description && <div className={styles.copy}>{description}</div>}
 
                 <div className={styles.klaviyoEmbed}>
                     <div className={formId} />
