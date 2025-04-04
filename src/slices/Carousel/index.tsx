@@ -15,7 +15,7 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
 const Carousel: FC<CarouselProps> = ({ slice }) => {
   return (
       <CarouselLayout
-          heading={slice.primary.heading}
+          heading={slice.primary.heading ?? undefined}
           bgColour={slice.primary.background_colour?.data?.colour_hexcode}
       >
         {slice.primary.slide?.map((item, index) => (

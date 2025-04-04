@@ -23,7 +23,7 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
       : [];
 
   return (
-    <HeroBannerLayout title={slice.primary.heading}
+    <HeroBannerLayout title={slice.primary.heading ?? undefined}
                 description={<PrismicRichText field={slice.primary.description} />}
                 backgroundImage={slice.primary.background_image.url}
                 overlayColour={slice.primary.overlay_colour}

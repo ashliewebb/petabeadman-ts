@@ -15,7 +15,7 @@ export type CardsProps = SliceComponentProps<Content.CardsSlice>;
 const Cards: FC<CardsProps> = ({ slice }) => {
     return (
         <CardsLayout
-            heading={slice.primary.heading}
+            heading={slice.primary.heading ?? undefined}
             copy={<PrismicRichText field={slice.primary.description} />}
         >
             {slice.primary.card?.map((item, index) => (
