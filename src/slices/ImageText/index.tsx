@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import { ImageText as ImageTextLayout } from '@/components/ImageText/ImageText'
 import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
+import {getLinkedField} from "@/lib/prismic/utils";
 
 /**
  * Props for `ImageText`.
@@ -12,11 +13,6 @@ export type ImageTextProps = SliceComponentProps<Content.ImageTextSlice>;
  * Component for "ImageText" Slices.
  */
 const ImageText: FC<ImageTextProps> = ({ slice }) => {
-    const bgColour = slice.primary.background_colour &&
-    'data' in slice.primary.background_colour
-        ? slice.primary.background_colour.data.colour_hexcode
-        : undefined;
-
         return (
             <ImageTextLayout
                 image={slice.primary.image.url ?? ''}
@@ -24,7 +20,7 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
                 imageDirection={slice.variation === 'imageOnRight' ? 'Right' : 'Left'}
                 imageRounded={slice.primary.round_image}
                 copy={<PrismicRichText field={slice.primary.copy} />}
-                bgColour={bgColour}
+                bgColour={getLinkedField(slice.primary.background_colour, 'colour_hexcode')}
             ></ImageTextLayout>
         )
 }

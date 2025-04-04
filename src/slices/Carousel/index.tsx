@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
+import { getLinkedField } from '@/lib/prismic/utils';
 import { Carousel as CarouselLayout } from "@/components/Carousel/Carousel";
 import { Slide as SlideLayout } from "@/components/Carousel/Slide";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -13,15 +14,10 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
  * Component for "Carousel" Slices.
  */
 const Carousel: FC<CarouselProps> = ({ slice }) => {
-  const bgColour = slice.primary.background_colour &&
-    'data' in slice.primary.background_colour
-        ? slice.primary.background_colour.data.colour_hexcode
-        : undefined;
-
   return (
       <CarouselLayout
           heading={slice.primary.heading ?? undefined}
-          bgColour={bgColour}
+          bgColour={getLinkedField(slice.primary.background_colour, 'colour_hexcode')}
       >
         {slice.primary.slide?.map((item, index) => (
             <SlideLayout
