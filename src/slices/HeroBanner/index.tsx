@@ -17,7 +17,6 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
       ? slice.primary.call_to_action.map((link) => ({
         href: asLink(link) ?? '#',
         label: link.text || 'Learn more',
-        target: link.target || undefined,
         variant: link.variant || 'Primary',
       }))
       : [];
@@ -29,7 +28,6 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
                 overlayColour={slice.primary.overlay_colour ?? ''}
                 overlayOpacity={slice.primary.overlay_opacity ?? 'null'}
                 links={links}
-                hashid={slice.primary.hashid ?? ''}
     ></HeroBannerLayout>
   );
 };
