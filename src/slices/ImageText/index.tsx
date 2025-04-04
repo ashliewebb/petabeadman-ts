@@ -12,6 +12,10 @@ export type ImageTextProps = SliceComponentProps<Content.ImageTextSlice>;
  * Component for "ImageText" Slices.
  */
 const ImageText: FC<ImageTextProps> = ({ slice }) => {
+    const bgColour = slice.primary.background_colour &&
+    'data' in slice.primary.background_colour
+        ? slice.primary.background_colour.data.colour_hexcode
+        : undefined;
 
         return (
             <ImageTextLayout
@@ -20,7 +24,7 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
                 imageDirection={slice.variation === 'imageOnRight' ? 'Right' : 'Left'}
                 imageRounded={slice.primary.round_image}
                 copy={<PrismicRichText field={slice.primary.copy} />}
-                bgColour={(slice.primary.background_colour as any)?.data?.colour_hexcode}
+                bgColour={bgColour}
             ></ImageTextLayout>
         )
 }

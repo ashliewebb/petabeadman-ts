@@ -18,7 +18,7 @@ const EmailSignupForm: FC<EmailSignupFormProps> = ({ slice }) => {
         formId={slice.primary.klaviyo_form_id ?? ''}
         heading={slice.primary.heading ?? undefined ?? ''}
         description={<PrismicRichText field={slice.primary.description}/>}
-        bgColour={(slice.primary.background_colour as any)?.data?.colour_hexcode}
+        bgColour={slice.primary.background_colour?.data?.colour_hexcode}
     ></EmailSignupFormLayout>
   );
 };

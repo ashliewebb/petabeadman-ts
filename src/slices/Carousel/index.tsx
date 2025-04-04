@@ -16,7 +16,7 @@ const Carousel: FC<CarouselProps> = ({ slice }) => {
   return (
       <CarouselLayout
           heading={slice.primary.heading ?? undefined}
-          bgColour={(slice.primary.background_colour as any)?.data?.colour_hexcode}
+          bgColour={slice.primary.background_colour?.data?.colour_hexcode}
       >
         {slice.primary.slide?.map((item, index) => (
             <SlideLayout
