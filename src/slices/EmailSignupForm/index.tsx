@@ -13,12 +13,17 @@ export type EmailSignupFormProps =
  * Component for "EmailSignupForm" Slices.
  */
 const EmailSignupForm: FC<EmailSignupFormProps> = ({ slice }) => {
+  const bgColour = slice.primary.background_colour &&
+  'data' in slice.primary.background_colour
+      ? slice.primary.background_colour.data.colour_hexcode
+      : undefined;
+
   return (
     <EmailSignupFormLayout
         formId={slice.primary.klaviyo_form_id ?? ''}
         heading={slice.primary.heading ?? undefined ?? ''}
         description={<PrismicRichText field={slice.primary.description}/>}
-        bgColour={slice.primary.background_colour?.data?.colour_hexcode}
+        bgColour={bgColour}
     ></EmailSignupFormLayout>
   );
 };
