@@ -1,9 +1,7 @@
 import React, {FC} from "react";
 import { ImageText as ImageTextLayout } from '@/components/ImageText/ImageText'
-import {Content} from "@prismicio/client";
-import { isFilledContentRelationship } from "@prismicio/helpers";
+import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
-import {getLinkedField} from "@/lib/prismic/utils";
 
 /**
  * Props for `ImageText`.
@@ -14,8 +12,13 @@ export type ImageTextProps = SliceComponentProps<Content.ImageTextSlice>;
  * Component for "ImageText" Slices.
  */
 const ImageText: FC<ImageTextProps> = ({ slice }) => {
-    const bgColour = isFilledContentRelationship(slice.primary.background_colour)
-        ? (getLinkedField(slice.primary.background_colour, 'colour_hexcode') as string | undefined)
+    const isFilled =
+        slice.primary.background_colour &&
+        typeof slice.primary.background_colour === 'object' &&
+        'data' in slice.primary.background_colour;
+
+    const bgColour = isFilled
+        ? slice.primary.background_colour.data.colour_hexcode
         : undefined;
 
     return (
