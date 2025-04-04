@@ -13,6 +13,8 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
  * Component for "Carousel" Slices.
  */
 const Carousel: FC<CarouselProps> = ({ slice }) => {
+    // @ts-expect-error - Prismic relationship `data` might be undefined at runtime
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     const bgColour = slice.primary.background_colour &&
     slice.primary.background_colour.data
         ? slice.primary.background_colour.data.colour_hexcode
