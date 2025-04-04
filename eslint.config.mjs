@@ -13,7 +13,7 @@ const eslintConfig = [
   {
     // 👇 Add your ignores here
     ignores: [
-      'src/lib/prismic/types.tsx',    // ignore problematic file
+      'src/lib/prismic/*.tsx',    // ignore problematic file
       'src/.slicemachine/**',         // ignore Slice Machine generated content
       '**/*.d.ts',                    // optionally ignore all type defs
     ],
