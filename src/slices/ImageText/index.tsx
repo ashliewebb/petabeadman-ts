@@ -12,12 +12,8 @@ export type ImageTextProps = SliceComponentProps<Content.ImageTextSlice>;
  * Component for "ImageText" Slices.
  */
 const ImageText: FC<ImageTextProps> = ({ slice }) => {
-    const isFilled =
-        slice.primary.background_colour &&
-        typeof slice.primary.background_colour === 'object' &&
-        'data' in slice.primary.background_colour;
-
-    const bgColour = isFilled
+    const bgColour = slice.primary.background_colour &&
+    slice.primary.background_colour.data
         ? slice.primary.background_colour.data.colour_hexcode
         : undefined;
 
