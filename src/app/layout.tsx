@@ -50,14 +50,14 @@ export default function RootLayout({
             </Link>
             <ul className={styles.navigation}>
               <li>
-                <Link href="/agent-resources" className={styles.navigationLink}>Agent Resources</Link>
+                <Link href="/agentresources" className={styles.navigationLink}>Agent Resources</Link>
               </li>
-              <li>
-                <Link href="/blog" className={styles.navigationLink}>Blog</Link>
-              </li>
-              <li>
-                <Link href="/about" className={styles.navigationLink}>About</Link>
-              </li>
+              {/*<li>*/}
+              {/*  <Link href="/blog" className={styles.navigationLink}>Blog</Link>*/}
+              {/*</li>*/}
+              {/*<li>*/}
+              {/*  <Link href="/about" className={styles.navigationLink}>About</Link>*/}
+              {/*</li>*/}
               <li>
                 <Link href="/shop" className={`buttonPrimary`}>Buy the Bundle</Link>
               </li>

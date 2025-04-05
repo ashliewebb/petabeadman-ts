@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AgentresourcesDocumentDataSlicesSlice = ResourceSlice;
+
+/**
+ * Content for Agent Resources documents
+ */
+interface AgentresourcesDocumentData {
+  /**
+   * Slice Zone field in *Agent Resources*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: agentresources.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AgentresourcesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Agent Resources*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: agentresources.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Agent Resources*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: agentresources.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Agent Resources*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: agentresources.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Agent Resources document from Prismic
+ *
+ * - **API ID**: `agentresources`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AgentresourcesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AgentresourcesDocumentData>,
+    "agentresources",
+    Lang
+  >;
+
 /**
  * Content for Background Colour documents
  */
@@ -248,11 +313,89 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type ResourceDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Resource documents
+ */
+interface ResourceDocumentData {
+  /**
+   * File field in *Resource*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.file
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  file: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Slice Zone field in *Resource*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ResourceDocumentDataSlicesSlice> /**
+   * Meta Title field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: resource.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: resource.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Resource*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Resource document from Prismic
+ *
+ * - **API ID**: `resource`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ResourceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ResourceDocumentData>,
+    "resource",
+    Lang
+  >;
+
 export type AllDocumentTypes =
+  | AgentresourcesDocument
   | BackgroundColourDocument
   | BlogPostDocument
   | HomepageDocument
-  | PageDocument;
+  | PageDocument
+  | ResourceDocument;
 
 /**
  * Item in *Cards → Default → Primary → Card*
@@ -797,6 +940,51 @@ export type ImageTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Resource → Default → Primary*
+ */
+export interface ResourceSliceDefaultPrimary {
+  /**
+   * Resource field in *Resource → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.default.primary.resource
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  resource: prismic.ContentRelationshipField<"resource">;
+}
+
+/**
+ * Default variation for Resource Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ResourceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ResourceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Resource*
+ */
+type ResourceSliceVariation = ResourceSliceDefault;
+
+/**
+ * Resource Shared Slice
+ *
+ * - **API ID**: `resource`
+ * - **Description**: Resource
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ResourceSlice = prismic.SharedSlice<
+  "resource",
+  ResourceSliceVariation
+>;
+
+/**
  * Primary content in *TextBlock → Default → Primary*
  */
 export interface TextBlockSliceDefaultPrimary {
@@ -872,6 +1060,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AgentresourcesDocument,
+      AgentresourcesDocumentData,
+      AgentresourcesDocumentDataSlicesSlice,
       BackgroundColourDocument,
       BackgroundColourDocumentData,
       BlogPostDocument,
@@ -883,6 +1074,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ResourceDocument,
+      ResourceDocumentData,
+      ResourceDocumentDataSlicesSlice,
       AllDocumentTypes,
       CardsSlice,
       CardsSliceDefaultPrimaryCardItem,
@@ -911,6 +1105,10 @@ declare module "@prismicio/client" {
       ImageTextSliceVariation,
       ImageTextSliceDefault,
       ImageTextSliceImageOnRight,
+      ResourceSlice,
+      ResourceSliceDefaultPrimary,
+      ResourceSliceVariation,
+      ResourceSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,
