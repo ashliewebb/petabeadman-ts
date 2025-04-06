@@ -1,10 +1,10 @@
 import "@/styles/globals.css";
 import React from 'react';
-
-
 import { createClient } from '@/prismicio';
 import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
+
+export const revalidate = 60;
 
 export default async function Home() {
     const client = createClient();
