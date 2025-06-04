@@ -76,6 +76,16 @@
 						]
 					}
 				]
+			},
+			"grid_columns_desktop": {
+				"__TYPE__": "FieldContent",
+				"value": "3",
+				"type": "Select"
+			},
+			"grid_columns_tablet": {
+				"__TYPE__": "FieldContent",
+				"value": "3",
+				"type": "Select"
 			}
 		},
 		"items": []

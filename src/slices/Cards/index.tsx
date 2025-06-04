@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Cards as CardsLayout } from "@/components/Cards/Cards"
-import { Card as CardLayout } from "@/components/Cards/Card"
+import { Grid } from "@/components/Grid/Grid"
+import { Card as CardLayout } from "@/components/Card/Card"
 import { Content } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 
@@ -14,9 +14,11 @@ export type CardsProps = SliceComponentProps<Content.CardsSlice>;
  */
 const Cards: FC<CardsProps> = ({ slice }) => {
     return (
-        <CardsLayout
+        <Grid
             heading={slice.primary.heading ?? undefined}
             copy={<PrismicRichText field={slice.primary.description} />}
+            gridCountWide={slice.primary.grid_columns_desktop ? slice.primary.grid_columns_desktop : '3'}
+            gridCountMed={slice.primary.grid_columns_tablet ? slice.primary.grid_columns_tablet : '2'}
         >
             {slice.primary.card?.map((item, index) => (
                 <CardLayout
@@ -27,7 +29,7 @@ const Cards: FC<CardsProps> = ({ slice }) => {
                     description={<PrismicRichText field={item.copy} />}
                 />
             ))}
-        </CardsLayout>
+        </Grid>
     );
 };
 

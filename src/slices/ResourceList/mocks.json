@@ -1,0 +1,56 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "paragraph",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation culpa do do exercitation adipisicing eu dolore incididunt laborum Lorem aliquip proident mollit cupidatat voluptate. Excepteur id qui aliqua voluptate aute ut ad esse sunt exercitation aute cillum cillum. Irure ullamco commodo sint id sit non velit ea deserunt in mollit id sunt sit."
+						}
+					}
+				]
+			},
+			"resources_list": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"resource",
+								{
+									"key": "ae600e29-64ca-441f-865d-0e603110cb15",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"grid_columns_desktop": {
+				"__TYPE__": "FieldContent",
+				"value": "4",
+				"type": "Select"
+			},
+			"grid_columns_tablet": {
+				"__TYPE__": "FieldContent",
+				"value": "3",
+				"type": "Select"
+			}
+		},
+		"items": []
+	}
+]

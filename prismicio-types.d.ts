@@ -4,71 +4,6 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AgentresourcesDocumentDataSlicesSlice = ResourceSlice;
-
-/**
- * Content for Agent Resources documents
- */
-interface AgentresourcesDocumentData {
-  /**
-   * Slice Zone field in *Agent Resources*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: agentresources.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<AgentresourcesDocumentDataSlicesSlice> /**
-   * Meta Title field in *Agent Resources*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: agentresources.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Agent Resources*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: agentresources.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Agent Resources*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: agentresources.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Agent Resources document from Prismic
- *
- * - **API ID**: `agentresources`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AgentresourcesDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AgentresourcesDocumentData>,
-    "agentresources",
-    Lang
-  >;
-
 /**
  * Content for Background Colour documents
  */
@@ -246,6 +181,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ResourceListSlice
   | CarouselSlice
   | EmailSignupFormSlice
   | DividerSlice
@@ -258,6 +194,28 @@ type PageDocumentDataSlicesSlice =
  * Content for Page documents
  */
 interface PageDocumentData {
+  /**
+   * Page heading field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Page intro field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.page_intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_intro: prismic.RichTextField;
+
   /**
    * Slice Zone field in *Page*
    *
@@ -331,6 +289,39 @@ interface ResourceDocumentData {
   file: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 
   /**
+   * Title field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Button Label field in *Resource*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource.button_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Resource*
    *
    * - **Field Type**: Slice Zone
@@ -390,7 +381,6 @@ export type ResourceDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | AgentresourcesDocument
   | BackgroundColourDocument
   | BlogPostDocument
   | HomepageDocument
@@ -465,6 +455,26 @@ export interface CardsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   card: prismic.GroupField<Simplify<CardsSliceDefaultPrimaryCardItem>>;
+
+  /**
+   * Grid Columns Desktop field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.grid_columns_desktop
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_desktop: prismic.SelectField<"2" | "3" | "4">;
+
+  /**
+   * Grid Columns Tablet field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.grid_columns_tablet
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_tablet: prismic.SelectField<"2" | "3">;
 }
 
 /**
@@ -940,48 +950,105 @@ export type ImageTextSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Resource → Default → Primary*
+ * Item in *ResourceList → Default → Primary → Resources List*
  */
-export interface ResourceSliceDefaultPrimary {
+export interface ResourceListSliceDefaultPrimaryResourcesListItem {
   /**
-   * Resource field in *Resource → Default → Primary*
+   * Resource field in *ResourceList → Default → Primary → Resources List*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: resource.default.primary.resource
+   * - **API ID Path**: resource_list.default.primary.resources_list[].resource
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   resource: prismic.ContentRelationshipField<"resource">;
 }
 
 /**
- * Default variation for Resource Slice
+ * Primary content in *ResourceList → Default → Primary*
+ */
+export interface ResourceListSliceDefaultPrimary {
+  /**
+   * Heading field in *ResourceList → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource_list.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *ResourceList → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource_list.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Resources List field in *ResourceList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource_list.default.primary.resources_list[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  resources_list: prismic.GroupField<
+    Simplify<ResourceListSliceDefaultPrimaryResourcesListItem>
+  >;
+
+  /**
+   * Grid Columns Desktop field in *ResourceList → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource_list.default.primary.grid_columns_desktop
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_desktop: prismic.SelectField<"2" | "3" | "4">;
+
+  /**
+   * Grid Columns Tablet field in *ResourceList → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: resource_list.default.primary.grid_columns_tablet
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_tablet: prismic.SelectField<"2" | "3">;
+}
+
+/**
+ * Default variation for ResourceList Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ResourceSliceDefault = prismic.SharedSliceVariation<
+export type ResourceListSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<ResourceSliceDefaultPrimary>,
+  Simplify<ResourceListSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *Resource*
+ * Slice variation for *ResourceList*
  */
-type ResourceSliceVariation = ResourceSliceDefault;
+type ResourceListSliceVariation = ResourceListSliceDefault;
 
 /**
- * Resource Shared Slice
+ * ResourceList Shared Slice
  *
- * - **API ID**: `resource`
- * - **Description**: Resource
+ * - **API ID**: `resource_list`
+ * - **Description**: ResourceList
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ResourceSlice = prismic.SharedSlice<
-  "resource",
-  ResourceSliceVariation
+export type ResourceListSlice = prismic.SharedSlice<
+  "resource_list",
+  ResourceListSliceVariation
 >;
 
 /**
@@ -1060,9 +1127,6 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      AgentresourcesDocument,
-      AgentresourcesDocumentData,
-      AgentresourcesDocumentDataSlicesSlice,
       BackgroundColourDocument,
       BackgroundColourDocumentData,
       BlogPostDocument,
@@ -1105,10 +1169,11 @@ declare module "@prismicio/client" {
       ImageTextSliceVariation,
       ImageTextSliceDefault,
       ImageTextSliceImageOnRight,
-      ResourceSlice,
-      ResourceSliceDefaultPrimary,
-      ResourceSliceVariation,
-      ResourceSliceDefault,
+      ResourceListSlice,
+      ResourceListSliceDefaultPrimaryResourcesListItem,
+      ResourceListSliceDefaultPrimary,
+      ResourceListSliceVariation,
+      ResourceListSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,

@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "page",
-  "label": "Page",
+  "id": "resource",
+  "label": "Resource",
   "repeatable": true,
   "status": true,
   "json": {
@@ -12,52 +12,43 @@
           "label": "UID"
         }
       },
+      "file": {
+        "type": "Link",
+        "config": {
+          "label": "File",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
       "title": {
         "type": "Text",
         "config": {
-          "label": "Page heading",
+          "label": "Title",
           "placeholder": ""
         }
       },
-      "page_intro": {
-        "type": "StructuredText",
+      "description": {
+        "type": "Text",
         "config": {
-          "label": "Page intro",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "button_label": {
+        "type": "Text",
+        "config": {
+          "label": "Button Label",
+          "placeholder": ""
         }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "resource_list": {
-              "type": "SharedSlice"
-            },
-            "carousel": {
-              "type": "SharedSlice"
-            },
-            "email_signup_form": {
-              "type": "SharedSlice"
-            },
-            "divider": {
-              "type": "SharedSlice"
-            },
-            "cards": {
-              "type": "SharedSlice"
-            },
-            "hero_banner": {
-              "type": "SharedSlice"
-            },
-            "image_text": {
-              "type": "SharedSlice"
-            },
-            "text_block": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

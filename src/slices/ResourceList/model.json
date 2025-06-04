@@ -1,8 +1,8 @@
 {
-  "id": "cards",
+  "id": "resource_list",
   "type": "SharedSlice",
-  "name": "Cards",
-  "description": "Cards",
+  "name": "ResourceList",
+  "description": "ResourceList",
   "variations": [
     {
       "id": "default",
@@ -25,39 +25,24 @@
             "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,rtl"
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
           }
         },
-        "card": {
+        "resources_list": {
           "type": "Group",
           "config": {
-            "label": "Card",
+            "label": "Resources List",
             "repeat": true,
             "fields": {
-              "image": {
-                "type": "Image",
+              "resource": {
+                "type": "Link",
                 "config": {
-                  "label": "Image",
-                  "constraint": {
-                    "height": 102
-                  },
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "copy": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Copy",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,rtl"
+                  "label": "Resource",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "resource"
+                  ]
                 }
               }
             }
