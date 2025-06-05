@@ -23,19 +23,20 @@ const ResourceList: FC<ResourceListProps> = ({ slice }) => {
           {slice.primary.resources_list?.map(item => {
               const doc = item.resource;
 
-              // Safely skip if the relationship is not filled
               if (!doc || !('data' in doc)) return null;
+
+              const resourceDoc = doc as Content.ResourceDocument;
 
               const {
                   title,
                   button_label,
                   description,
                   file,
-              } = doc.data;
+              } = resourceDoc.data;
 
               return (
                   <Resource
-                      key={doc.id}
+                      key={resourceDoc.id}
                       title={title ?? ''}
                       description={<PrismicRichText field={description} />}
                       linkUrl={file?.url ?? '#'}
