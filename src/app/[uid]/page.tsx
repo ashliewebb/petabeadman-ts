@@ -1,11 +1,9 @@
 import "@/styles/globals.css";
 import React from 'react';
 
-import type { Metadata } from "next";
 import { createClient } from '@/prismicio';
-import { PrismicText, PrismicRichText, SliceZone } from '@prismicio/react';
+import { PrismicRichText, SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
-import styles from "@/components/Grid/Grid.module.scss";
 
 type Params = { uid: string };
 
