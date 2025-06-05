@@ -33,6 +33,10 @@ const TestimonialList: FC<TestimonialListProps> = ({ slice }) => {
                 source,
             } = doc.data as Content.TestimonialDocument['data'];
 
+            const sourceLabel = isFilled.link(source) && typeof (source as any).name === 'string'
+                ? (source as any).name
+                : 'View on RateMyAgent.com.au';
+
             return (
                 <TestimonialLayout
                     key={doc.id}
@@ -40,6 +44,7 @@ const TestimonialList: FC<TestimonialListProps> = ({ slice }) => {
                     quote={isFilled.richText(testimonial) && <PrismicRichText field={testimonial} />}
                     quotee={author ?? ''}
                     source={isFilled.link(source) ? (source.url as string) : '#'}
+                    source_name={sourceLabel}
                 />
             );
         })}

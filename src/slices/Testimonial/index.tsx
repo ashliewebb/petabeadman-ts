@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import {Content, isFilled} from "@prismicio/client";
 import {PrismicRichText, SliceComponentProps} from "@prismicio/react";
-import { TestimonialSingle as TestimonialSingleLayout } from "@/components/Testimonial/TestimonialSingle";
+import { TestimonialSpotlight as TestimonialSingleLayout } from "@/components/Testimonial/TestimonialSpotlight";
 import { Testimonial as TestimonialLayout } from "@/components/Testimonial/Testimonial";
 
 /**
