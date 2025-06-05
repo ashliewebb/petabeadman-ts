@@ -33,8 +33,8 @@ const TestimonialList: FC<TestimonialListProps> = ({ slice }) => {
                 source,
             } = doc.data as Content.TestimonialDocument['data'];
 
-            const sourceLabel = isFilled.link(source) && typeof (source as any).name === 'string'
-                ? (source as any).name
+            const sourceLabel = isFilled.link(source) && 'name' in source && typeof source.name === 'string'
+                ? source.name
                 : 'View on RateMyAgent.com.au';
 
             return (
