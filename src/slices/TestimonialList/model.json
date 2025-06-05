@@ -1,0 +1,79 @@
+{
+  "id": "testimonial_list",
+  "type": "SharedSlice",
+  "name": "TestimonialList",
+  "description": "TestimonialList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "testimonials": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonials",
+            "repeat": true,
+            "fields": {
+              "testimonial": {
+                "type": "Link",
+                "config": {
+                  "label": "Testimonial",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "testimonial"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "grid_columns_desktop": {
+          "type": "Select",
+          "config": {
+            "label": "Grid Columns Desktop",
+            "placeholder": "",
+            "options": [
+              "2",
+              "3",
+              "4"
+            ]
+          }
+        },
+        "grid_columns_tablet": {
+          "type": "Select",
+          "config": {
+            "label": "Grid Columns Tablet",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2",
+              "3"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

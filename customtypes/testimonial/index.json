@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "blog_post",
-  "label": "Blog Post",
+  "id": "testimonial",
+  "label": "Testimonial",
   "repeatable": true,
   "status": true,
   "json": {
@@ -12,30 +12,45 @@
           "label": "UID"
         }
       },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "testimonial": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Testimonial",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "author": {
+        "type": "Text",
+        "config": {
+          "label": "Author",
+          "placeholder": ""
+        }
+      },
+      "source": {
+        "type": "Link",
+        "config": {
+          "label": "Source",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "hero_banner": {
-              "type": "SharedSlice"
-            },
-            "text_block": {
-              "type": "SharedSlice"
-            },
-            "email_signup_form": {
-              "type": "SharedSlice"
-            },
-            "image_text": {
-              "type": "SharedSlice"
-            },
-            "divider": {
-              "type": "SharedSlice"
-            },
-            "cards": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

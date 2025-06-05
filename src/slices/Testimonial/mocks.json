@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"testimonial": {
+				"key": "f30a36bc-9e6d-414a-b18f-63a9ad8f3df9",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"background_colour": {
+				"key": "13b2cf71-df6c-496c-bab2-20c3a0906d5e",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "finest",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

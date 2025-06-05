@@ -52,6 +52,9 @@ export default function RootLayout({
               <li>
                 <Link href="/agentresources" className={styles.navigationLink}>Agent Resources</Link>
               </li>
+              <li>
+                <Link href="/testimonials" className={styles.navigationLink}>Testimonials</Link>
+              </li>
               {/*<li>*/}
               {/*  <Link href="/blog" className={styles.navigationLink}>Blog</Link>*/}
               {/*</li>*/}

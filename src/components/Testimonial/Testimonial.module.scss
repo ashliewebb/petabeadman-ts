@@ -7,12 +7,21 @@
   margin: 0 auto;
 }
 
-.quote {
-  font-size: 22px;
-}
-
 .quotee {
   font-size: 17px;
   opacity: 0.5;
   font-style: normal;
+}
+
+.testimonial {
+  border: 1px solid lightgrey;
+  padding: 2em;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.testimonialSingle {
+  .testimonial {
+    font-size: 22px;
+  }
 }

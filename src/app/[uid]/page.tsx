@@ -16,6 +16,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             'resource.description',
             'resource.file',
             'resource.button_label',
+            'testimonial.title',
+            'testimonial.testimonial',
+            'testimonial.author',
+            'testimonial.source',
         ],
     });
 

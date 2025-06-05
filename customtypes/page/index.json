@@ -33,10 +33,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "resource_list": {
+            "testimonial": {
               "type": "SharedSlice"
             },
-            "carousel": {
+            "testimonial_list": {
+              "type": "SharedSlice"
+            },
+            "resource_list": {
               "type": "SharedSlice"
             },
             "email_signup_form": {

@@ -38,7 +38,6 @@ export type BackgroundColourDocument<Lang extends string = string> =
 
 type BlogPostDocumentDataSlicesSlice =
   | HeroBannerSlice
-  | CarouselSlice
   | TextBlockSlice
   | EmailSignupFormSlice
   | ImageTextSlice
@@ -109,7 +108,7 @@ export type BlogPostDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
-  | CarouselSlice
+  | TestimonialSlice
   | EmailSignupFormSlice
   | DividerSlice
   | CardsSlice
@@ -181,8 +180,9 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestimonialSlice
+  | TestimonialListSlice
   | ResourceListSlice
-  | CarouselSlice
   | EmailSignupFormSlice
   | DividerSlice
   | CardsSlice
@@ -380,12 +380,122 @@ export type ResourceDocument<Lang extends string = string> =
     Lang
   >;
 
+type TestimonialDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Testimonial documents
+ */
+interface TestimonialDocumentData {
+  /**
+   * Title field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Testimonial field in *Testimonial*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonial
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testimonial: prismic.RichTextField;
+
+  /**
+   * Author field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
+
+  /**
+   * Source field in *Testimonial*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.source
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  source: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Slice Zone field in *Testimonial*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TestimonialDocumentDataSlicesSlice> /**
+   * Meta Title field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: testimonial.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: testimonial.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Testimonial*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Testimonial document from Prismic
+ *
+ * - **API ID**: `testimonial`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestimonialDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TestimonialDocumentData>,
+    "testimonial",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BackgroundColourDocument
   | BlogPostDocument
   | HomepageDocument
   | PageDocument
-  | ResourceDocument;
+  | ResourceDocument
+  | TestimonialDocument;
 
 /**
  * Item in *Cards → Default → Primary → Card*
@@ -503,106 +613,6 @@ type CardsSliceVariation = CardsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
-
-/**
- * Item in *Carousel → Default → Primary → Slide*
- */
-export interface CarouselSliceDefaultPrimarySlideItem {
-  /**
-   * Quote Title field in *Carousel → Default → Primary → Slide*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.slide[].quote_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  quote_title: prismic.KeyTextField;
-
-  /**
-   * Quote field in *Carousel → Default → Primary → Slide*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.slide[].quote
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  quote: prismic.RichTextField;
-
-  /**
-   * Quotee field in *Carousel → Default → Primary → Slide*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Name of quoted person
-   * - **API ID Path**: carousel.default.primary.slide[].quotee
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  quotee: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *Carousel → Default → Primary*
- */
-export interface CarouselSliceDefaultPrimary {
-  /**
-   * Heading field in *Carousel → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading: prismic.KeyTextField;
-
-  /**
-   * Slide field in *Carousel → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.slide[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  slide: prismic.GroupField<Simplify<CarouselSliceDefaultPrimarySlideItem>>;
-
-  /**
-   * Background Colour field in *Carousel → Default → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.background_colour
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  background_colour: prismic.ContentRelationshipField<"background_colour">;
-}
-
-/**
- * Default variation for Carousel Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CarouselSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CarouselSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Carousel*
- */
-type CarouselSliceVariation = CarouselSliceDefault;
-
-/**
- * Carousel Shared Slice
- *
- * - **API ID**: `carousel`
- * - **Description**: Carousel
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CarouselSlice = prismic.SharedSlice<
-  "carousel",
-  CarouselSliceVariation
->;
 
 /**
  * Default variation for Divider Slice
@@ -1052,6 +1062,173 @@ export type ResourceListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Testimonial → Default → Primary*
+ */
+export interface TestimonialSliceDefaultPrimary {
+  /**
+   * Title field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Testimonial field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  testimonial: prismic.ContentRelationshipField<"testimonial">;
+
+  /**
+   * Background Colour field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.background_colour
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  background_colour: prismic.ContentRelationshipField<"background_colour">;
+}
+
+/**
+ * Default variation for Testimonial Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonial*
+ */
+type TestimonialSliceVariation = TestimonialSliceDefault;
+
+/**
+ * Testimonial Shared Slice
+ *
+ * - **API ID**: `testimonial`
+ * - **Description**: Testimonial
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSlice = prismic.SharedSlice<
+  "testimonial",
+  TestimonialSliceVariation
+>;
+
+/**
+ * Item in *TestimonialList → Default → Primary → Testimonials*
+ */
+export interface TestimonialListSliceDefaultPrimaryTestimonialsItem {
+  /**
+   * Testimonial field in *TestimonialList → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.testimonials[].testimonial
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  testimonial: prismic.ContentRelationshipField<"testimonial">;
+}
+
+/**
+ * Primary content in *TestimonialList → Default → Primary*
+ */
+export interface TestimonialListSliceDefaultPrimary {
+  /**
+   * heading field in *TestimonialList → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *TestimonialList → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Testimonials field in *TestimonialList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.testimonials[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonials: prismic.GroupField<
+    Simplify<TestimonialListSliceDefaultPrimaryTestimonialsItem>
+  >;
+
+  /**
+   * Grid Columns Desktop field in *TestimonialList → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.grid_columns_desktop
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_desktop: prismic.SelectField<"2" | "3" | "4">;
+
+  /**
+   * Grid Columns Tablet field in *TestimonialList → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial_list.default.primary.grid_columns_tablet
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  grid_columns_tablet: prismic.SelectField<"1" | "2" | "3">;
+}
+
+/**
+ * Default variation for TestimonialList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialListSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestimonialList*
+ */
+type TestimonialListSliceVariation = TestimonialListSliceDefault;
+
+/**
+ * TestimonialList Shared Slice
+ *
+ * - **API ID**: `testimonial_list`
+ * - **Description**: TestimonialList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialListSlice = prismic.SharedSlice<
+  "testimonial_list",
+  TestimonialListSliceVariation
+>;
+
+/**
  * Primary content in *TextBlock → Default → Primary*
  */
 export interface TextBlockSliceDefaultPrimary {
@@ -1141,17 +1318,15 @@ declare module "@prismicio/client" {
       ResourceDocument,
       ResourceDocumentData,
       ResourceDocumentDataSlicesSlice,
+      TestimonialDocument,
+      TestimonialDocumentData,
+      TestimonialDocumentDataSlicesSlice,
       AllDocumentTypes,
       CardsSlice,
       CardsSliceDefaultPrimaryCardItem,
       CardsSliceDefaultPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
-      CarouselSlice,
-      CarouselSliceDefaultPrimarySlideItem,
-      CarouselSliceDefaultPrimary,
-      CarouselSliceVariation,
-      CarouselSliceDefault,
       DividerSlice,
       DividerSliceVariation,
       DividerSliceDefault,
@@ -1174,6 +1349,15 @@ declare module "@prismicio/client" {
       ResourceListSliceDefaultPrimary,
       ResourceListSliceVariation,
       ResourceListSliceDefault,
+      TestimonialSlice,
+      TestimonialSliceDefaultPrimary,
+      TestimonialSliceVariation,
+      TestimonialSliceDefault,
+      TestimonialListSlice,
+      TestimonialListSliceDefaultPrimaryTestimonialsItem,
+      TestimonialListSliceDefaultPrimary,
+      TestimonialListSliceVariation,
+      TestimonialListSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,

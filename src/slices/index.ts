@@ -4,11 +4,12 @@ import dynamic from "next/dynamic";
 
 export const components = {
   cards: dynamic(() => import("./Cards")),
-  carousel: dynamic(() => import("./Carousel")),
   divider: dynamic(() => import("./Divider")),
   email_signup_form: dynamic(() => import("./EmailSignupForm")),
   hero_banner: dynamic(() => import("./HeroBanner")),
   image_text: dynamic(() => import("./ImageText")),
   resource_list: dynamic(() => import("./ResourceList")),
+  testimonial: dynamic(() => import("./Testimonial")),
+  testimonial_list: dynamic(() => import("./TestimonialList")),
   text_block: dynamic(() => import("./TextBlock")),
 };

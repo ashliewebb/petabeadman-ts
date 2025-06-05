@@ -8,7 +8,14 @@ export const revalidate = 60;
 
 export default async function Home() {
     const client = createClient();
-    const page = await client.getSingle('homepage', { fetchLinks: ['background_colour.colour_hexcode'] });
+    const page = await client.getSingle('homepage', {
+        fetchLinks: [
+            'background_colour.colour_hexcode',
+            'testimonial.title',
+            'testimonial.testimonial',
+            'testimonial.author',
+            'testimonial.source',
+        ] });
 
     return (
         <main>
