@@ -37,7 +37,7 @@ const ResourceList: FC<ResourceListProps> = ({ slice }) => {
                       key={doc.id}
                       title={title ?? ''}
                       description={description ?? ''}
-                      linkUrl={file?.url ?? '#'}
+                      linkUrl={isFilled.link(file) ? (file.url as string) : '#'}
                       linkLabel={button_label ?? 'View'}
                   />
               );
