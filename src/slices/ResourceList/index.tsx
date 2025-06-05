@@ -22,13 +22,15 @@ const ResourceList: FC<ResourceListProps> = ({ slice }) => {
       >
           {slice.primary.resources_list?.map(item => {
               const doc = item.resource;
-              if (!doc?.data) return null; // skip if nothing linked
+
+              // Safely skip if the relationship is not filled
+              if (!doc || !('data' in doc)) return null;
 
               const {
                   title,
                   button_label,
                   description,
-                  file,        // the File field object
+                  file,
               } = doc.data;
 
               return (
