@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import { ImageText as ImageTextLayout } from '@/components/ImageText/ImageText'
-import { Content } from "@prismicio/client";
+import {Content, isFilled} from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 
 /**
@@ -25,7 +25,7 @@ const ImageText: FC<ImageTextProps> = ({ slice }) => {
                 imageAlt={slice.primary.image.alt ?? ''}
                 imageDirection={slice.variation === 'imageOnRight' ? 'Right' : 'Left'}
                 imageRounded={slice.primary.round_image}
-                copy={<PrismicRichText field={slice.primary.copy} />}
+                copy={isFilled.richText(slice.primary.copy) && <PrismicRichText field={slice.primary.copy} />}
                 bgColour={bgColour}
             ></ImageTextLayout>
         )

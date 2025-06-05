@@ -1,5 +1,5 @@
 import { FC } from "react";
-import {Content} from "@prismicio/client";
+import {Content, isFilled} from "@prismicio/client";
 import { Carousel as CarouselLayout } from "@/components/Carousel/Carousel";
 import { Slide as SlideLayout } from "@/components/Carousel/Slide";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -29,7 +29,7 @@ const Carousel: FC<CarouselProps> = ({ slice }) => {
             <SlideLayout
                 key={index}
                 quote_title={item.quote_title ?? ''}
-                quote={<PrismicRichText field={item.quote} />}
+                quote={isFilled.richText(item.quote) && <PrismicRichText field={item.quote} />}
                 quotee={item.quotee ?? ''}
             />
         ))}

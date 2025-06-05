@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Grid } from "@/components/Grid/Grid"
 import { Card as CardLayout } from "@/components/Card/Card"
-import { Content } from "@prismicio/client";
+import {Content, isFilled} from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 
 /**
@@ -26,7 +26,7 @@ const Cards: FC<CardsProps> = ({ slice }) => {
                     title={item.title ?? ''}
                     image={item.image.url ?? ''}
                     imageAlt={item.image.alt ?? ''}
-                    description={<PrismicRichText field={item.copy} />}
+                    description={isFilled.richText(item.copy) && <PrismicRichText field={item.copy} />}
                 />
             ))}
         </Grid>

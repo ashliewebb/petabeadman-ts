@@ -8,17 +8,6 @@
 				"value": "paragraph",
 				"type": "Text"
 			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Exercitation culpa do do exercitation adipisicing eu dolore incididunt laborum Lorem aliquip proident mollit cupidatat voluptate. Excepteur id qui aliqua voluptate aute ut ad esse sunt exercitation aute cillum cillum. Irure ullamco commodo sint id sit non velit ea deserunt in mollit id sunt sit."
-						}
-					}
-				]
-			},
 			"resources_list": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -49,6 +38,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "3",
 				"type": "Select"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat sunt anim eiusmod aliquip adipisicing ut incididunt consequat sit nisi occaecat nulla veniam consectetur. Ea minim ea ad irure duis officia et."
+						}
+					}
+				]
 			}
 		},
 		"items": []

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Text } from "@/components/Text/Text"
-import { Content } from "@prismicio/client";
+import {Content, isFilled} from "@prismicio/client";
 import {PrismicRichText, SliceComponentProps} from "@prismicio/react";
 
 /**
@@ -13,7 +13,7 @@ export type TextBlockProps = SliceComponentProps<Content.TextBlockSlice>;
  */
 const TextBlock: FC<TextBlockProps> = ({ slice }) => {
   return (
-    <Text copy={<PrismicRichText field={slice.primary.text} />}
+    <Text copy={isFilled.richText(slice.primary.text) && <PrismicRichText field={slice.primary.text} />}
     ></Text>
   );
 };

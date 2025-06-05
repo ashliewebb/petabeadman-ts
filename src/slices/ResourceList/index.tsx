@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Grid } from "@/components/Grid/Grid"
 import { Resource } from "@/components/Resource/Resource"
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
 
 /**
@@ -16,7 +16,7 @@ const ResourceList: FC<ResourceListProps> = ({ slice }) => {
   return (
       <Grid
           heading={slice.primary.heading ?? undefined}
-          copy={<PrismicRichText field={slice.primary.description} />}
+          copy={isFilled.richText(slice.primary.description) && <PrismicRichText field={slice.primary.description} />}
           gridCountWide={slice.primary.grid_columns_desktop ?? '3'}
           gridCountMed={slice.primary.grid_columns_tablet  ?? '2'}
       >
@@ -36,7 +36,7 @@ const ResourceList: FC<ResourceListProps> = ({ slice }) => {
                   <Resource
                       key={doc.id}
                       title={title ?? ''}
-                      description={<PrismicRichText field={description} />}
+                      description={description ?? ''}
                       linkUrl={file?.url ?? '#'}
                       linkLabel={button_label ?? 'View'}
                   />
