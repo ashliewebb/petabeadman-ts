@@ -1,0 +1,43 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"button": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "f8392b7f-8d85-4fb7-a0c4-07242a7800a4",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "fourth",
+							"variant": "Secondary"
+						}
+					}
+				]
+			},
+			"subtext": {
+				"__TYPE__": "FieldContent",
+				"value": "sleep",
+				"type": "Text"
+			},
+			"background_colour": {
+				"key": "127c4bcb-bf06-4502-8259-9f78aeb463f1",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"slice_padding": {
+				"__TYPE__": "FieldContent",
+				"value": "Top & Bottom",
+				"type": "Select"
+			}
+		},
+		"items": []
+	}
+]

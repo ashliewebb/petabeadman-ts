@@ -5,11 +5,12 @@ import styles from './Text.module.scss';
 type TextProps = {
     copy: React.ReactNode;
     bgColour?: string;
+    paddingClass?: string;
 }
 
-export const Text = ({copy, bgColour}: TextProps) => {
+export const Text = ({copy, bgColour, paddingClass}: TextProps) => {
     return (
-        <div className={`section`} style={{ backgroundColor: bgColour }}>
+        <div className={paddingClass} style={{ backgroundColor: bgColour }}>
             <div className={`sectionInner`}>
                 <div className={styles.text}>{copy}</div>
             </div>

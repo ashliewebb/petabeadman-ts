@@ -108,6 +108,7 @@ export type BlogPostDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | TestimonialSlice
   | EmailSignupFormSlice
   | DividerSlice
@@ -496,6 +497,93 @@ export type AllDocumentTypes =
   | PageDocument
   | ResourceDocument
   | TestimonialDocument;
+
+/**
+ * Primary content in *CallToAction → Default → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Button field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
+
+  /**
+   * Subtext field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.subtext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtext: prismic.KeyTextField;
+
+  /**
+   * Background Colour field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.default.primary.background_colour
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  background_colour: prismic.ContentRelationshipField<"background_colour">;
+
+  /**
+   * Margin field in *CallToAction → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Top & Bottom
+   * - **API ID Path**: call_to_action.default.primary.slice_padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  slice_padding: prismic.SelectField<
+    "Top & Bottom" | "Top Only" | "Bottom Only" | "No Margin",
+    "filled"
+  >;
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CallToActionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation = CallToActionSliceDefault;
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  "call_to_action",
+  CallToActionSliceVariation
+>;
 
 /**
  * Item in *Cards → Default → Primary → Card*
@@ -1251,6 +1339,20 @@ export interface TextBlockSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   background_colour: prismic.ContentRelationshipField<"background_colour">;
+
+  /**
+   * Margin field in *TextBlock → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Top & Bottom
+   * - **API ID Path**: text_block.default.primary.slice_padding
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  slice_padding: prismic.SelectField<
+    "Top & Bottom" | "Top Only" | "Bottom Only" | "No Margin",
+    "filled"
+  >;
 }
 
 /**
@@ -1322,6 +1424,10 @@ declare module "@prismicio/client" {
       TestimonialDocumentData,
       TestimonialDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
       CardsSlice,
       CardsSliceDefaultPrimaryCardItem,
       CardsSliceDefaultPrimary,

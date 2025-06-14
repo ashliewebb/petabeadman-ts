@@ -62,7 +62,7 @@ export default function RootLayout({
               {/*  <Link href="/about" className={styles.navigationLink}>About</Link>*/}
               {/*</li>*/}
               <li>
-                <Link href="/shop" className={`buttonPrimary`}>Buy the Bundle</Link>
+                <Link href="/shop" className={`buttonPrimary`}>Buy the Book</Link>
               </li>
             </ul>
           </header>

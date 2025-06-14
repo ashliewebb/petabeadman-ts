@@ -125,6 +125,14 @@ h3,
   padding-bottom: 0;
 }
 
+.sectionTopPadding {
+  padding-bottom: 0;
+}
+
+.sectionBottomPadding {
+  padding-top: 0;
+}
+
 .sectionInner {
   margin: 0 auto;
   max-width: 1060px;
@@ -151,6 +159,12 @@ h3,
   padding: 0;
 }
 
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
 .buttonPrimary,
 .buttonSecondary {
   font-weight: 600;
@@ -164,6 +178,7 @@ h3,
   transition: all ease 0.5s;
   letter-spacing: 0.05em;
 }
+
 .buttonPrimary {
   background: var(--color-primary);
   color: var(--color-white);

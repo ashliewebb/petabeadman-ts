@@ -1,22 +1,19 @@
 import React from 'react';
 import '@/styles/globals.css';
 import styles from './CallToAction.module.scss';
-import Link from "next/link";
 
 type CallToActionProps = {
-    subtext: string;
+    subtext?: React.ReactNode;
     bgColour?: string;
-    ctaLink: string;
-    ctaLabel: string;
+    paddingClass?: string;
+    children: React.ReactNode;
 }
 
-export const CallToAction = ({subtext, bgColour, ctaLink, ctaLabel}: CallToActionProps) => {
+export const CallToAction = ({subtext, bgColour, paddingClass, children}: CallToActionProps) => {
     return (
-        <div className={`section${bgColour ? ` sectionBg${bgColour}` : ''}`}>
+        <div className={`${paddingClass}${bgColour ? ` sectionBg${bgColour}` : ''}`}>
             <div className={`sectionInner`}>
-                <div className={styles.callToActionButtons}>
-                    <Link className={`buttonPrimary`} href={ctaLink}>{ctaLabel}</Link>
-                </div>
+                {children}
                 <p className={styles.callToActionSubtext}>{subtext}</p>
             </div>
         </div>
