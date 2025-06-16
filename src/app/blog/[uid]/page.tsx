@@ -10,7 +10,7 @@ type Params = { uid: string };
 export default async function Page({ params }: { params: Promise<Params> }) {
     const { uid } = await params;
     const client = createClient();
-    const page = await client.getByUID("page", uid, {
+    const page = await client.getByUID("article", uid, {
         fetchLinks: [
             'background_colour.colour_hexcode',
             'resource.title',
@@ -26,8 +26,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
     return (
         <>
-            <div className='page-header section'>
-                <div className='sectionInner'>
+            <div className={`page-header section`}>
+                <div className={`sectionInner`}>
                     <h1 className='heading heading1'>{page.data.title}</h1>
                     <div className='page-intro'><PrismicRichText field={page.data.page_intro} /></div>
                 </div>

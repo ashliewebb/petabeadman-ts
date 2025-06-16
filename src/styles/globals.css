@@ -227,3 +227,32 @@ h3,
     }
   }
 }
+
+.article-item {
+  &:hover,
+  &:active {
+    h2.article-item__title {
+      color: var(--color-highlight);
+    }
+
+    .article-item__more {
+      color: var(--color-highlight);
+    }
+  }
+}
+
+h2.article-item__title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.article-item__intro {
+  line-height: 1.4;
+}
+
+.article-item__more {
+  display: block;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 17px;
+}

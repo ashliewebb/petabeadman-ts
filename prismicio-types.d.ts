@@ -4,6 +4,102 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ArticleDocumentDataSlicesSlice =
+  | HeroBannerSlice
+  | TextBlockSlice
+  | ImageTextSlice
+  | ResourceListSlice
+  | CardsSlice
+  | EmailSignupFormSlice
+  | CallToActionSlice
+  | DividerSlice
+  | TestimonialSlice;
+
+/**
+ * Content for Article documents
+ */
+interface ArticleDocumentData {
+  /**
+   * Page heading field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Page intro field in *Article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.page_intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_intro: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Article*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+   * Meta Title field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: article.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: article.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Article document from Prismic
+ *
+ * - **API ID**: `article`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArticleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ArticleDocumentData>,
+    "article",
+    Lang
+  >;
+
 /**
  * Content for Background Colour documents
  */
@@ -36,55 +132,71 @@ export type BackgroundColourDocument<Lang extends string = string> =
     Lang
   >;
 
-type BlogPostDocumentDataSlicesSlice =
-  | HeroBannerSlice
-  | TextBlockSlice
-  | EmailSignupFormSlice
-  | ImageTextSlice
-  | DividerSlice
-  | CardsSlice;
+type BlogDocumentDataSlicesSlice = never;
 
 /**
- * Content for Blog Post documents
+ * Content for Blog documents
  */
-interface BlogPostDocumentData {
+interface BlogDocumentData {
   /**
-   * Slice Zone field in *Blog Post*
+   * Page title field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Page intro field in *Blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.page_intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_intro: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Blog*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.slices[]
+   * - **API ID Path**: blog.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice> /**
-   * Meta Title field in *Blog Post*
+  slices: prismic.SliceZone<BlogDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: blog_post.meta_title
+   * - **API ID Path**: blog.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Blog Post*
+   * Meta Description field in *Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: blog_post.meta_description
+   * - **API ID Path**: blog.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Blog Post*
+   * Meta Image field in *Blog*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.meta_image
+   * - **API ID Path**: blog.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
@@ -92,20 +204,16 @@ interface BlogPostDocumentData {
 }
 
 /**
- * Blog Post document from Prismic
+ * Blog document from Prismic
  *
- * - **API ID**: `blog_post`
- * - **Repeatable**: `true`
+ * - **API ID**: `blog`
+ * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type BlogPostDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<BlogPostDocumentData>,
-    "blog_post",
-    Lang
-  >;
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
   | CallToActionSlice
@@ -491,8 +599,9 @@ export type TestimonialDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | ArticleDocument
   | BackgroundColourDocument
-  | BlogPostDocument
+  | BlogDocument
   | HomepageDocument
   | PageDocument
   | ResourceDocument
@@ -1406,11 +1515,14 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ArticleDocument,
+      ArticleDocumentData,
+      ArticleDocumentDataSlicesSlice,
       BackgroundColourDocument,
       BackgroundColourDocumentData,
-      BlogPostDocument,
-      BlogPostDocumentData,
-      BlogPostDocumentDataSlicesSlice,
+      BlogDocument,
+      BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
