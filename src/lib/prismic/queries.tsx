@@ -6,5 +6,5 @@ export const getHomePage = async () => {
 };
 
 export const getBlogPostBySlug = async (slug: string) => {
-    return await client.getByUID('blog_post', slug);
+    return await client.getByUID('article', slug);
 };
