@@ -1,0 +1,112 @@
+{
+  "format": "page",
+  "id": "product",
+  "label": "Product",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {
+            "width": 200,
+            "height": 200
+          },
+          "thumbnails": []
+        }
+      },
+      "product_name": {
+        "type": "Text",
+        "config": {
+          "label": "Product Name",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading5,heading6,strong,em,heading3,heading4,hyperlink,list-item,o-list-item,embed,image"
+        }
+      },
+      "price": {
+        "type": "Text",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "shipping_text": {
+        "type": "Text",
+        "config": {
+          "label": "Shipping text",
+          "placeholder": ""
+        }
+      },
+      "payment_link": {
+        "type": "Link",
+        "config": {
+          "label": "Payment link",
+          "placeholder": "Stripe payment link",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "most_popular": {
+        "type": "Boolean",
+        "config": {
+          "label": "Most Popular",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

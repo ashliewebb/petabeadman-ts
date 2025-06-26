@@ -9,6 +9,7 @@ export const components = {
   email_signup_form: dynamic(() => import("./EmailSignupForm")),
   hero_banner: dynamic(() => import("./HeroBanner")),
   image_text: dynamic(() => import("./ImageText")),
+  products: dynamic(() => import("./Products")),
   resource_list: dynamic(() => import("./ResourceList")),
   testimonial: dynamic(() => import("./Testimonial")),
   testimonial_list: dynamic(() => import("./TestimonialList")),

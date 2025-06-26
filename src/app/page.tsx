@@ -10,6 +10,13 @@ export default async function Home() {
     const page = await client.getSingle('homepage', {
         fetchLinks: [
             'background_colour.colour_hexcode',
+            'product.image',
+            'product.product_name',
+            'product.price',
+            'product.description',
+            'product.payment_link',
+            'product.most_popular',
+            'product.shipping_text',
             'testimonial.title',
             'testimonial.testimonial',
             'testimonial.author',

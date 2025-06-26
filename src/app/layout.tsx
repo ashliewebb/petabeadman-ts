@@ -48,7 +48,7 @@ export default function RootLayout({
           </div>
           <header className={styles.header}>
             <Link href="/">
-              <span className={styles.logoText}>Peta Beadman</span>
+              <span className={styles.logoText}>Peta Scharkie</span>
             </Link>
             <ul className={styles.navigation}>
               <li>
@@ -73,7 +73,7 @@ export default function RootLayout({
           </main>
           <footer className={styles.footer}>
             <div className={`sectionInner`}>
-              <p>&copy; Peta Beadman {currentYear}</p>
+              <p>&copy; Peta Scharkie {currentYear}</p>
             </div>
           </footer>
         </div>
