@@ -19,6 +19,7 @@ const Products: FC<ProductsProps> = ({ slice }) => {
           copy={isFilled.richText(slice.primary.description) && <PrismicRichText field={slice.primary.description} />}
           gridCountWide={slice.primary.grid_columns_desktop ?? '3'}
           gridCountMed={slice.primary.grid_columns_tablet  ?? '2'}
+          sectionId='shop'
       >
         {slice.primary.products?.map((item) => {
           const doc = item.product;

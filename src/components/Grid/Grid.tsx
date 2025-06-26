@@ -9,9 +9,10 @@ type GridProps = {
     gridCountWide?: string | '3';
     gridCountMed?: string | '2';
     children: React.ReactNode;
+    sectionId?: string;
 }
 
-export const Grid = ({bgColour, heading, copy, gridCountWide, gridCountMed, children}: GridProps) => {
+export const Grid = ({bgColour, heading, copy, gridCountWide, gridCountMed, children, sectionId}: GridProps) => {
     const gridWide = (gridCountWide === '2'
         ? `${styles.gridWide2}`
         : gridCountWide === '3'
@@ -27,7 +28,7 @@ export const Grid = ({bgColour, heading, copy, gridCountWide, gridCountMed, chil
             : "")
 
     return (
-        <div className={`section`} style={{ backgroundColor: bgColour }}>
+        <div className={`section`} style={{ backgroundColor: bgColour }} id={sectionId}>
             {heading && (
                 <div className={`sectionInner ${styles.cards}`}>
                     {heading && <h2 className={`heading heading2`}>{heading}</h2>}
