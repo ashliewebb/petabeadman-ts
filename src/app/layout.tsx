@@ -77,6 +77,7 @@ export default function RootLayout({
           <footer className={styles.footer}>
             <div className={`sectionInner`}>
               <p>&copy; Peta Scharkie {currentYear}</p>
+              <p>tweak some words here</p>
             </div>
           </footer>
         </div>
