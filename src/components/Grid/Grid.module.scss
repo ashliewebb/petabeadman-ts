@@ -33,21 +33,21 @@
   &2 {
     @media screen and (min-width: 860px) {
       grid-template-columns: 1fr 1fr;
-      gap: 4em;
+      gap: 3em;
     }
   }
 
   &3 {
     @media screen and (min-width: 860px) {
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 3em;
+      gap: 2em;
     }
   }
 
   &4 {
     @media screen and (min-width: 860px) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 2em;
+      gap: 1.5em;
     }
   }
 }
@@ -57,7 +57,7 @@
     @media screen and (min-width: 600px) {
       grid-template-columns: 1fr 1fr;
       justify-content: center;
-      gap: 4em;
+      gap: 3em;
     }
   }
 

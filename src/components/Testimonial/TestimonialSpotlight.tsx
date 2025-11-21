@@ -14,7 +14,7 @@ export const TestimonialSpotlight = ({heading, children, bgColour}: TestimonialP
             <div className={`sectionInner`}>
                 {heading && <h2 className={`heading heading2`}>{heading}</h2>}
                 {children}
-                <Link href="/testimonials" className={styles.testimonialLink}>View more testimonials</Link>
+                <Link href="/testimonials" className={`buttonGhost ${styles.testimonialLink}`}>View more testimonials</Link>
             </div>
         </div>
     )

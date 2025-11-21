@@ -25,7 +25,7 @@ export const Product = ({title, description, image, imageAlt, imageWidth, imageH
             <h3>{title}</h3>
             {description && <div className={styles.productDesc}>{description}</div>}
             {price && <p className={styles.productPrice}>{price}<span className={styles.productCurrency}>AUD</span></p>}
-            {shipping && <p>{shipping}</p>}
+            {shipping ? <p className={styles.productShipping}>{shipping}</p> : <p>&nbsp;</p>}
             <Link className={`buttonPrimary`} href={linkUrl} target={'_blank'}>{linkLabel}</Link>
         </div>
     )

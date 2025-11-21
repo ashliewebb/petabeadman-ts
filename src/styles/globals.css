@@ -8,6 +8,7 @@ body {
   --color-white: #ffffff;
   --color-primary: #DB5361;
   --color-secondary: #D68802;
+  --color-secondary-light: #FCAC39;
   --color-highlight: #DA2B42;
   --color-tertiary: #FFE1F5;
 
@@ -166,7 +167,8 @@ h3,
 }
 
 .buttonPrimary,
-.buttonSecondary {
+.buttonSecondary,
+.buttonGhost {
   font-weight: 600;
   font-size: 1.15em;
   gap: 8px;
@@ -199,6 +201,19 @@ h3,
   &:active {
     color: var(--color-highlight);
     background: var(--color-white);
+    border: 1px solid var(--color-highlight);
+  }
+}
+
+.buttonGhost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+
+  &:hover,
+  &:active {
+    color: var(--color-highlight);
+    background: transparent;
     border: 1px solid var(--color-highlight);
   }
 }
